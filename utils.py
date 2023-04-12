@@ -21,8 +21,8 @@ def extract_url_video_data(soup):
         title = video.find('yt-formatted-string', {"id": "video-title"}).text
         views = video.find('span', {"class": "inline-metadata-item style-scope ytd-video-meta-block"}).text
         upload_time = video.find(
-            'span', {"class": "inline-metadata-item style-scope ytd-video-meta-block"}
-        ).get('before')
+            'div', {"class": "style-scope ytd-video-meta-block"}
+        ).text.strip().split('\n')[-1::-3][0]
         video_duration = video.find(
             'span', {"class": "style-scope ytd-thumbnail-overlay-time-status-renderer"}
         ).text.strip()
