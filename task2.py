@@ -1,4 +1,4 @@
-from utils import scroll_all_pages,extract_YT_video_data
+from utils import scroll_all_pages, extract_url_video_data
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -12,7 +12,7 @@ scroll_all_pages(driver)
 html = driver.page_source
 soup = BeautifulSoup(html, 'html.parser')
 
-extracted_video_data = extract_YT_video_data(soup)
+extracted_video_data = extract_url_video_data(soup)
 
 data_frame = pd.DataFrame(extracted_video_data)
 data_frame.to_csv('zusmani78.csv', index=False)

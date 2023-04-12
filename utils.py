@@ -1,5 +1,6 @@
 import time
 
+
 def scroll_all_pages(driver):
 
     last_scroll_height = driver.execute_script("return document.documentElement.scrollHeight")
@@ -12,7 +13,8 @@ def scroll_all_pages(driver):
             break
         last_scroll_height = new_scroll_height
 
-def extract_YT_video_data(soup):
+
+def extract_url_video_data(soup):
     all_video_data = soup.find_all('ytd-rich-item-renderer')
     extracting_data = []
     for video in all_video_data:
